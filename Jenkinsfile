@@ -11,7 +11,7 @@ pipeline {
 
    stage('Test') {
       environment {
-        DOCKERHUB_CREDS = credentials('github')
+        GIT_CREDS = credentials('github')
        }
       steps {
            container('python') {
