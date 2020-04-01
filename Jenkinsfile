@@ -12,8 +12,8 @@ pipeline {
    stage('Test') {
       environment {
         GIT_CREDS = credentials('github')
-        GITREPO_URL = github.com/atul7cloudyuga/rsvpapp.git
-        GITREPO_BRANCH = jenkins-pod-test
+        GITREPO_URL = "github.com/atul7cloudyuga/rsvpapp.git"
+        GITREPO_BRANCH = "jenkins-pod-test"
        }
       steps {
            container('python') {
