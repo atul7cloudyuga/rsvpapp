@@ -15,10 +15,15 @@ pipeline {
        }
       steps {
            container('python') {
+               
+               // Set the environment variables
+               sh "GITREPO_URL=github.com/atul7cloudyuga/rsvpapp.git"
+               sh "GITREPO_BRANCH=jenkins-pod-test"
                // Clone the git repo
-               sh "git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/atul7cloudyuga/rsvpapp.git"
+               sh "git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@GITHUB_URL"
+               
                dir("rsvpapp") {
-                   sh "git checkout jenkins-pod-test"
+                   sh "git checkout GITREPO_BRANCH"
                    sh  "python -m pip install -r requirements.txt"
                    sh "python -m pytest tests/test_rsvpapp.py"
                 }
