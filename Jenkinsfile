@@ -6,11 +6,11 @@ pipeline {
     }
  
   stages {
-
+    IMAGE_REPO = "atul7cloudyuga/rsvp-demo"
     stage('Build') {
       environment {
         DOCKERHUB_CREDS = credentials('dockerhub')
-        IMAGE_REPO = "atul7cloudyuga/rsvp-demo"
+        //IMAGE_REPO = "atul7cloudyuga/rsvp-demo"
       }
       steps {
         container('docker') {
@@ -28,7 +28,7 @@ pipeline {
         GIT_REPO_URL = "github.com/atul7cloudyuga/kustomize-demo.git"
         GIT_REPO_EMAIL = 'atul@cloudyuga.guru'
         GIT_REPO_BRANCH = "9-putting-it-all-together-fixing-labels"
-        IMAGE_REPO = "atul7cloudyuga/rsvp-demo"
+       // IMAGE_REPO = "atul7cloudyuga/rsvp-demo"
         
       }
       steps {
@@ -47,7 +47,7 @@ pipeline {
 
     stage('Deploy to Prod') {
         environment {
-        IMAGE_REPO = "atul7cloudyuga/rsvp-demo"
+       // IMAGE_REPO = "atul7cloudyuga/rsvp-demo"
       }
       steps {
         input message:'Approve deployment?'
