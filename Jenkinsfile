@@ -48,9 +48,9 @@ pipeline {
     }
 
     stage('Deploy to Prod') {
-        environment {
+       // environment {
        // IMAGE_REPO = "atul7cloudyuga/rsvp-demo"
-      }
+    //  }
       steps {
         input message:'Approve deployment?'
         container('tools') {
