@@ -6,19 +6,19 @@ pipeline {
     }
  
   stages {
-
-      properties([
-  parameters([
-    string(name: 'DEPLOY_ENV', defaultValue: 'TESTING', description: 'The target environment', )
-   ])
-])
-
-   stage('Test') {
-      environment {
+  environment {
         GIT_CREDS = credentials('github')
         //GITREPO_URL = "github.com/atul7cloudyuga/rsvpapp.git"
         GITREPO_BRANCH = "jenkins-pod-test"
        }
+      
+
+   stage('Test') {
+      //environment {
+        //GIT_CREDS = credentials('github')
+        //GITREPO_URL = "github.com/atul7cloudyuga/rsvpapp.git"
+        //GITREPO_BRANCH = "jenkins-pod-test"
+       //}
       steps {
            container('python') {
                
@@ -26,7 +26,7 @@ pipeline {
               // sh "export GITREPO_URL=github.com/atul7cloudyuga/rsvpapp.git"
                //sh "export GITREPO_BRANCH=jenkins-pod-test"
                // Clone the git repo
-               sh "echo ${param.DEPLOY_ENV}"
+               sh "echo ${param.GITREPO_BRANCH}"
              // sh "git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@${env.GITREPO_URL}"
                
              //  dir("rsvpapp") {
