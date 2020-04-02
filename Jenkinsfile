@@ -24,8 +24,8 @@ pipeline {
                
                dir("rsvpapp") {
                    sh "git checkout $GITREPO_BRANCH"
-                   sh  "python -m pip install -r requirements.txt"
-                   sh "python -m pytest tests/test_rsvpapp.py
+                   sh "python -m pip install -r requirements.txt"
+                   sh "python -m pytest tests/test_rsvpapp.py"
                }
                
            }
