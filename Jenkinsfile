@@ -4,16 +4,13 @@ pipeline {
             label 'jenkins-slave'
         }
     }
- 
-  stages {
-  environment {
+ environment {
         GIT_CREDS = credentials('github')
         //GITREPO_URL = "github.com/atul7cloudyuga/rsvpapp.git"
         GITREPO_BRANCH = "jenkins-pod-test"
        }
-      
-
-   stage('Test') {
+  stages {
+    stage('Test') {
       //environment {
         //GIT_CREDS = credentials('github')
         //GITREPO_URL = "github.com/atul7cloudyuga/rsvpapp.git"
