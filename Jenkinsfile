@@ -23,7 +23,7 @@ pipeline {
               // sh "export GITREPO_URL=github.com/atul7cloudyuga/rsvpapp.git"
                //sh "export GITREPO_BRANCH=jenkins-pod-test"
                // Clone the git repo
-               sh "echo ${param.GITREPO_BRANCH}"
+               sh "echo ${env.GITREPO_BRANCH}"
              // sh "git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@${env.GITREPO_URL}"
                
              //  dir("rsvpapp") {
