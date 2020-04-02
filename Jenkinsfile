@@ -4,31 +4,29 @@ pipeline {
             label 'jenkins-slave'
         }
     }
+ 
  environment {
         GIT_CREDS = credentials('github')
         GITREPO_URL = "github.com/atul7cloudyuga/rsvpapp.git"
         GITREPO_BRANCH = "jenkins-pod-test"
        }
  
-    stages {
-    
-        stage('Test') {
-       
-            steps {
-           
-                container('python') {
+ stages {
+     stage('Test') {
+         steps {
+               container('python') {
                
                // Set the environment variables
                //sh "export GITREPO_URL=github.com/atul7cloudyuga/rsvpapp.git"
                //sh "export GITREPO_BRANCH=jenkins-pod-test"
-                Clone the git repo
-                sh "git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@${env.GITREPO_URL}"
+               //Clone the git repo
+               sh "git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@${env.GITREPO_URL}"
                
-             dir("rsvpapp") {
+               dir("rsvpapp") {
                    sh "git checkout $GITREPO_BRANCH"
                    sh  "python -m pip install -r requirements.txt"
-                   sh "python -m pytest tests/test_rsvpapp.py"
-             }
+                   sh "python -m pytest tests/test_rsvpapp.py
+               }
                
            }
        }
