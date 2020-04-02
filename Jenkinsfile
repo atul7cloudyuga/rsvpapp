@@ -4,9 +4,11 @@ pipeline {
             label 'jenkins-slave'
         }
     }
- 
+  environment {
+      IMAGE_REPO = "atul7cloudyuga/rsvp-demo"
+  }
   stages {
-    IMAGE_REPO = "atul7cloudyuga/rsvp-demo"
+    //IMAGE_REPO = "atul7cloudyuga/rsvp-demo"
     stage('Build') {
       environment {
         DOCKERHUB_CREDS = credentials('dockerhub')
